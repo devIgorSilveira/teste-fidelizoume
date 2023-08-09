@@ -2,7 +2,7 @@ import Header from "@/components/header";
 import ListOfPokemons from "@/components/listOfPokemons";
 import { Box } from "@chakra-ui/react";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Box as={"main"} bg={"gray.100"} pb={"2rem"}>
@@ -11,4 +11,6 @@ export default function Home() {
       </Box>
     </>
   );
-}
+};
+
+export default Home;

@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import PokemonType from "./pokemonType";
+import { useRouter } from "next/router";
 
 interface IPropInterface {
   name: string;
@@ -19,6 +20,8 @@ const PokemonCard = ({ name }: IPropInterface) => {
   const [pokemon, setPokemon] = useState<IPokemonInterface>(
     {} as IPokemonInterface
   );
+
+  const router = useRouter();
 
   useEffect(() => {
     getPokemon();
@@ -51,6 +54,7 @@ const PokemonCard = ({ name }: IPropInterface) => {
       w={"205px"}
       _hover={{ transform: "scale(1.01)", boxShadow: "0px 0px 5px 1px gray" }}
       cursor={"pointer"}
+      onClick={() => router.push(`/pokemon/${name}`)}
     >
       <CardHeader w={"205px"} h={"205px"} bg={"gray.100"}>
         <Image src={pokemon.sprites?.front_default} w={"100%"} />

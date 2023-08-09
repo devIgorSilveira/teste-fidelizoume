@@ -11,7 +11,11 @@ import {
 import { useEffect, useState } from "react";
 import PokemonType from "./pokemonType";
 
-const PokemonCard = () => {
+interface IPropInterface {
+  name: string;
+}
+
+const PokemonCard = ({ name }: IPropInterface) => {
   const [pokemon, setPokemon] = useState<IPokemonInterface>(
     {} as IPokemonInterface
   );
@@ -21,7 +25,7 @@ const PokemonCard = () => {
   }, []);
 
   const getPokemon = async () => {
-    const pokes = await api.get("/244");
+    const pokes = await api.get(`/${name}`);
 
     setPokemon(pokes.data);
   };

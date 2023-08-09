@@ -29,3 +29,8 @@ export interface IPokemonInterface {
   stats: IStatsInterface[];
   types: ITypeInterface[];
 }
+
+export interface IListOfPokemonsInterface {
+  name: string;
+  url: string;
+}

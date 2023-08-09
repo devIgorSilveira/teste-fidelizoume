@@ -1,11 +1,14 @@
 import Header from "@/components/header";
-import PokemonCard from "@/components/pokemonCard";
+import ListOfPokemons from "@/components/listOfPokemons";
+import { Box } from "@chakra-ui/react";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <PokemonCard />
+      <Box as={"main"} bg={"gray.100"} pb={"2rem"}>
+        <Header />
+        <ListOfPokemons />
+      </Box>
     </>
   );
 }

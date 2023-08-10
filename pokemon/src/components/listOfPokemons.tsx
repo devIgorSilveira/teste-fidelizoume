@@ -3,6 +3,7 @@ import { api } from "@/services/api";
 import { useEffect, useState } from "react";
 import { Button, ButtonGroup, Flex, SimpleGrid } from "@chakra-ui/react";
 import PokemonCard from "./pokemonCard";
+import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 const ListOfPokemons = () => {
   const [pokemons, setPokemons] = useState<IListOfPokemonsInterface[]>(
@@ -50,24 +51,37 @@ const ListOfPokemons = () => {
           <PokemonCard name={pokemon.name} key={pokemon.name} />
         ))}
       </SimpleGrid>
-      <Flex justifyContent={"center"} gap={"5px"}>
+
+      {previousPageUrl && (
         <Button
           bg={"red.500"}
           color={"white"}
+          size={"sm"}
           _hover={{ backgroundColor: "red.600" }}
+          position={"fixed"}
+          top={"50%"}
+          left={"1rem"}
+          leftIcon={<ArrowBackIcon />}
           onClick={handlePreviousPage}
         >
-          Página Anterior
+          Voltar
         </Button>
+      )}
+      {nextPageUrl && (
         <Button
           bg={"red.500"}
+          size={"sm"}
           color={"white"}
           _hover={{ backgroundColor: "red.600" }}
+          position={"fixed"}
+          top={"50%"}
+          right={"1rem"}
+          rightIcon={<ArrowForwardIcon />}
           onClick={handleNextPage}
         >
-          Próxima Página
+          Avançar
         </Button>
-      </Flex>
+      )}
     </>
   );
 };

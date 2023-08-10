@@ -17,5 +17,5 @@ export const formatPokemonName = (name: string = "0000") => {
 export const formatPokemonInfo = (info: string = "0000") => {
   const beforeDot = info.substring(0, info.length - 1);
   const afterDot = info.substring(info.length - 1, info.length);
-  return beforeDot + "." + afterDot;
+  return (!beforeDot ? 0 : beforeDot) + "." + afterDot;
 };

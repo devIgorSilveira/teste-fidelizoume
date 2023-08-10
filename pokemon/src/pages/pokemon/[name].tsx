@@ -33,8 +33,6 @@ const PokemonPage = () => {
     }
   };
 
-  console.log(pokemon?.stats);
-
   return (
     <>
       {pokemon == null ? (

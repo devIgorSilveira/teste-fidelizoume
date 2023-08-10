@@ -7,11 +7,13 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { formatPokemonId, formatPokemonInfo, formatPokemonName } from "@/utils";
 import PokemonType from "@/components/pokemonType";
+import Loading from "@/components/loading";
 
 const PokemonPage = () => {
   const [pokemon, setPokemon] = useState<IPokemonInterface | null>(
     {} as IPokemonInterface
   );
+  const [isLoading, setIsLoading] = useState<Boolean>(false);
 
   const router = useRouter();
 
@@ -25,16 +27,21 @@ const PokemonPage = () => {
 
   const getPokemon = async () => {
     try {
+      setIsLoading(true);
       const pokes = await api.get(`/${name}`);
 
       setPokemon(pokes.data);
     } catch (error) {
+      console.error(error);
       setPokemon(null);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <>
+      {isLoading && <Loading />}
       {pokemon == null ? (
         <Box as={"main"} bg={"gray.100"} h={"100vh"}>
           <Header />

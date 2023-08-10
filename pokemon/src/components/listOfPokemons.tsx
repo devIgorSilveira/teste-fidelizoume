@@ -1,7 +1,7 @@
 import { IListOfPokemonsInterface } from "@/interfaces";
 import { api } from "@/services/api";
 import { useEffect, useState } from "react";
-import { Button, ButtonGroup, Flex, SimpleGrid } from "@chakra-ui/react";
+import { Button, SimpleGrid } from "@chakra-ui/react";
 import PokemonCard from "./pokemonCard";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 

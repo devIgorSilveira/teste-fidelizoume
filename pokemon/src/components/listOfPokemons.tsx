@@ -39,7 +39,13 @@ const ListOfPokemons = () => {
 
   return (
     <>
-      <SimpleGrid columns={4} spacing={5} maxW={"80%"} m={"2rem auto"}>
+      <SimpleGrid
+        as={"ul"}
+        columns={4}
+        spacing={5}
+        maxW={"80%"}
+        m={"2rem auto"}
+      >
         {pokemons.map((pokemon) => (
           <PokemonCard name={pokemon.name} key={pokemon.name} />
         ))}

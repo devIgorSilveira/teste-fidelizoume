@@ -11,6 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import PokemonType from "./pokemonType";
 import { useRouter } from "next/router";
+import { formatPokemonId, formatPokemonName } from "@/utils";
 
 interface IPropInterface {
   name: string;
@@ -33,24 +34,9 @@ const PokemonCard = ({ name }: IPropInterface) => {
     setPokemon(pokes.data);
   };
 
-  const formatPokemonId = (id: number = 0) => {
-    let formatedId = "";
-
-    for (let i = 4; i > 0; i--) {
-      if (i > id.toString().length) {
-        formatedId += 0;
-      }
-    }
-
-    return `N. ${formatedId}${id}`;
-  };
-
-  const formatPokemonName = (name: string = "0000") => {
-    return `${name[0].replace(name[0], name[0].toUpperCase())}${name.slice(1)}`;
-  };
-
   return (
     <Card
+      as={"li"}
       w={"205px"}
       _hover={{ transform: "scale(1.01)", boxShadow: "0px 0px 5px 1px gray" }}
       cursor={"pointer"}

@@ -66,7 +66,7 @@ const PokemonType = ({ types }: IPropsInterface) => {
         </Box>
       ) : (
         types?.length == 2 && (
-          <Flex justify={"space-between"}>
+          <Flex justify={"space-between"} w={"100%"}>
             <Box
               bg={getTypeColor(types[0].type.name)}
               w={"48%"}
